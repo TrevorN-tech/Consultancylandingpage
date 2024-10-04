@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <meta name="description" content="Trevor Nyabuto IT Consultancy - Providing professional IT services in Nairobi and Kiambu counties.">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+    font-family: 'Segoe UI', sans-serif;
+}
+    
+    .display-2 {
+        font-family: 'Segoe UI'sans-serif;
+        font-weight: 500;
+        font-size: 6cqmax; /* Increased size for main heading */
+    }
+    .lead {
+        font-size: 1.3rem; /* Increased size for lead paragraphs */
+    }
+    .navbar-nav .nav-link {
+        font-size: 1.1rem; /* Increased size for navigation links */
+    }
+    .service-block h3 {
+        font-size: 1.5rem; /* Increased size for service block headings */
+    }
+    .card-title {
+        font-size: 1.3rem; /* Increased size for card titles */
+    }
+    footer {
+        font-size: 1rem; /* Increased size for footer text */
+    }
+    /* ... existing styles ... */
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* This will make the container full viewport height */
+        overflow: hidden;
+    }
+
+    .video-container video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: contain;
+    }
+    /* ... existing styles ... */
+
+    .card {
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card-img-top {
+        height: 300px; /* Increased height for larger cards */
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.4rem; /* Larger font size for card titles */
+        height: auto; /* Allow title to expand as needed */
+        margin-bottom: 1rem;
+    }
+
+    .card-text {
+        font-size: 1.1rem; /* Larger font size for card text */
+    }
+
+    @media (max-width: 767px) {
+        .col-md-4 {
+            margin-bottom: 30px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .row.padding {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .col-md-4 {
+            display: flex;
+        }
+        .card {
+            width: 100%;
+        }
+    }
+    .bg-black {
+    background-color: #000000 !important;
+}
+footer, 
+footer h5 {
+    font-family: 'Segoe UI', sans-serif;
+}
+#highlight-text {
+    transition: opacity 0.5s ease-in-out;
+}
+    </style>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Connect</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    </head>
+<body>
+    <!--- Jumbotron -->
+<!--- Jumbotron -->
+<div class="container-fluid" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
+    <div class="row jumbotron">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+            <p class="lead" style="font-size: 2.6rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 100;">
+                I am Trevor Nyabuto, an equipped and skilled practitioner with 
+                <span id="highlight-text" style="color: #FF1493; font-family: 'Segoe UI', sans-serif; font-weight: bold;"></span>
+                realizing team success through agile solutions architecting.
+                I provision I.T managed services with a 5+ year service history in the Nairobi and Kiambu counties.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Array of phrases to cycle through
+    const phrases = [
+        "Microsoft Azure A.I expertise",
+        "IBM Z Mainframe competence",
+        "Cloud infrastructure mastery",
+        "Remote Desktop Support Solutions Agility",
+        "I.T Managed Services Provisioning,",
+        "Hardware & Software Heuristics & Revamp",
+        "Enterprise security proficiency"
+    ];
+
+    let currentPhraseIndex = 0;
+    const highlightTextElement = document.getElementById('highlight-text');
+
+    function changeHighlightText() {
+        highlightTextElement.style.opacity = 0;
+        
+        setTimeout(() => {
+            highlightTextElement.textContent = phrases[currentPhraseIndex];
+            highlightTextElement.style.opacity = 1;
+            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+        }, 500); // Wait for fade out before changing text
+    }
+
+    // Initial call
+    changeHighlightText();
+
+    // Set interval to change text every 3 seconds
+    setInterval(changeHighlightText, 3000);
+</script>
+    
+</body>
+</html>
+
+
+
+<!--- Image Slider -->
+<div id="videoCarousel" class="carousel slide" data-ride="carousel" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <video src="img/202409290558.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="carousel-caption">
+                <a class="as-cell color--translucent" href="https://66f417f8453edc00f4db734a--bright-beijinho-4f0cea.netlify.app/" 
+                title="TREVOR NYABUTO I.T CONSULTANCY"></a>
+                <h1 class="display-2">TREVOR NYABUTO I.T CONSULTANCY</h1>
+            </div>
+        </div>
+        <!-- ... other carousel items ... -->
+    </div>
+</div>
+
+<style>
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        overflow: hidden;
+    }
+
+    .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .carousel-caption h1 {
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: 500;
+        font-size: 3rem;
+        margin: 0;
+    }
+
+    @media (min-width: 768px) {
+        .carousel-caption h1 {
+            font-size: 4rem;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .carousel-caption h1 {
+            font-size: 5rem;
+        }
+    }
+</style>
+        </div>
+        <div class="carousel-item">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="img/2795166-uhd_3840_2160_25fps.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="carousel-caption">
+                <a class="as-cell color--translucent" href="https://66f417f8453edc00f4db734a--bright-beijinho-4f0cea.netlify.app/" 
+                title="TREVOR NYABUTO I.T CONSULTANCY"></a>
+                <h1 class="display-2" style="font-family: 'Segoe UI', sans-serif; font-weight: 500; font-size: 5rem;">TREVOR NYABUTO I.T CONSULTANCY</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize the carousel
+    $(document).ready(function(){
+        $('#videoCarousel').carousel({
+            interval: 10000 // Change slide every 10 seconds
+        });
+    });
+
+    // Pause/play videos when sliding
+    $('#videoCarousel').on('slide.bs.carousel', function () {
+        $('video').each(function(){
+            this.pause();
+        });
+    });
+
+    $('#videoCarousel').on('slid.bs.carousel', function () {
+        $('.carousel-item.active video')[0].play();
+    });
+</script>
+
+
+<!--- Welcome Section -->
+<div class="container-fluid padding"data-aos="fade-up"
+		data-aos-offset="200"
+		data-aos-delay="50"
+		data-aos-duration="1000">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h1 class="display-4">Seamless workflows with professional support services.</h1>
+		</div>
+		<hr style="width: 100%; height: 2px; background-color: #000000; border: none;">
+		<div class="col-12">
+			<p class="lead" style="font-size: 2.0rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 100;">I have developed cloud-based infrastructure on the Azure platform, expertly managing and configuring 
+                resource groups for seamless testing and integration. 
+                My work encompasses scalable solutions with Azure Sentinel, Functions, Data Lake, and Lighthouse resources,
+                 enabling the hosting of HTML5 webpages as blob storage objects. Subsequently replicating these cloud concepts on the IBM Z Mainframe live server compute instance realizing a 99% uptime.
+			</p>
+		</div>
+	</div>
+</div>
+
+<!--- Three Column Section -->
+<div class="container-fluid padding"data-aos="fade-up"
+		data-aos-offset="200"
+		data-aos-delay="50"
+		data-aos-duration="1000">
+	<!--- Cards -->
+<div class="container-fluid padding" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
+    <div class="row padding">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <img class="card-img-top" src="img/azure-svgrepo-com.svg" alt="Microsoft Azure Logo">
+                    <h4 class="card-title">Microsoft Azure A.I Solutions Architect</h4>
+                    <p class="card-text flex-grow-1"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="img/ibm-svgrepo-com.svg" alt="IBM Logo">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">IBM Z Mainframe Practitioner</h4>
+                    <p class="card-text flex-grow-1"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="img/294037976_444720240994558_7935518677438667482_n-removebg-preview.png" alt="International Cyber Security Institute Logo">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Network Security Practitioner - International Cyber Security Institute (ICSI)</h4>
+                    <p class="card-text flex-grow-1"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--- Two Column Section -->
+<div class="container-fluid padding"data-aos="fade-up"
+		data-aos-offset="200"
+		data-aos-delay="50"
+		data-aos-duration="1000">
+	<div class="row padding">
+		<div class="col-md-12 col-lg-6">
+			<h6 class="display-4" style="font-size: 4rem; font-weight: 500; font-family: 'Segoe UI', sans-serif;">If you need it...we've got it</h6>
+			<p class="lead" style="font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 100;">Whether looking to scale your operating system infrastructure instances or troubleshooting, we've just the right tooling for you.</p>
+			<p class="lead" style="font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 100;">A scalable portfolio of services across on-boarding, risk assessment and vulnerability scanning, heuristics and 
+				defense, hardware inspection and maintenance, kernel services including updates, scanning and installation. </p>
+			<p class="lead" style="font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 100;">Your go-to for personalized I.T managed services for individuals and businesses alike.</p>
+				<br>
+		</div>
+		<div class="col-md-12 col-lg-6">
+			<video src="img/3251740-uhd_3840_2160_25fps.mp4" style="align-items: stretch; width: 100%; height: 100%;" autoplay loop muted></video>
+		</div>
+	</div>
+</div>
+
+<hr class="my-4">
+
+
+<!--- Certifications -->
+<div class="container-fluid padding">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h1 class="display-4">Professional Qualifications</h1>
+		</div>
+	</div>
+</div>
+
+<!--- Cards -->
+        <div class="container-fluid padding" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
+    <div class="row padding">
+        <div class="col-md-6 position-relative">
+            <div class="card h-100">
+                <img class="card-img-center" src="img/Microsoft_Certified_Professional.jpg" alt="Microsoft Azure AI">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title" style="font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 500;">Microsoft Azure A.I</h4>
+                    <p class="card-text flex-grow-2"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <div class="card h-100">
+                <img class="card-img-center" src="img/ibm-z-os-mainframe-practitioner.png" alt="IBM Z Mainframe">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title" style="font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 500;">IBM Z Mainframe</h4>
+                    <p class="card-text flex-grow-2"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <div class="card h-100">
+                <img class="card-img-center" src="img/ICSI - CNSS_page-0001.jpg" alt="Network Security">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Network Security - International Cyber Security Institute</h4>
+                    <p class="card-text flex-grow-10"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--- Two Column Section -->
+<div class="container-fluid padding" data-aos="fade-up"
+		data-aos-offset="200"
+		data-aos-delay="50"
+		data-aos-duration="1000">
+	<div class="row padding">
+		<div class="col-md-12 col-lg-6">
+			<h1 class="display-4" style="font-size: 4rem; font-weight: 500; font-family: 'Segoe UI', sans-serif;">My Philosophy</h1>
+			<p><h2>We know that greatness in a disruptive era requires bold
+				ambition, curious talent and a culture that believes we're
+			    smarter together.</h2></p>
+			<p><h2>With agile practices and seamless solutions-provision, you are guranteed upto a 99% uptime in your workflows.
+			</h2></p>
+
+		</div>
+		<div class="col-lg-6">
+			<img src="img/microsoft-viva-glint-manager.png" class="img-fluid">
+		</div>
+	</div>
+	<hr class="my-4">
+</div>
+
+<!--- Footer -->
+<footer class="bg-black text-light py-5">
+    <div class="container" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <h2 class="text-uppercase mb-4 text-white">Contact Me</h2>
+                <ul class="list-styled" style="font-size: 1.5rem; font-display: flex; font-weight: 100;">
+                    <li><i class="fas fa-phone mr-2 text-white"></i> 254-702-566670</li>
+                    <li><i class="far fa-envelope mr-2 text-white"></i> trevornyabuto@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt mr-2 text-white"></i> Nairobi, Kenya</li>
+                </ul>
+            </div>
+            <div class="col-md-5 mb-5">
+                <h2 class="text-uppercase mb-4 text-white">Open Hours</h2>
+                <ul class="list-styled" style="font-size: 1.5rem; font-display: flex; font-weight: 100;">
+                    <li>Monday - Sunday: 9am - 5pm</li>
+                    <li>Public Holidays: Closed</li>
+                </ul>
+            </div>
+            <div class="col-md-5 mb-5">
+                <h2 class="text-uppercase mb-4 text-white">Service Areas</h2>
+                <ul class="list-styled" style="font-size: 1.5rem; font-display: flex; font-weight: 100;">
+                    <li>Nairobi County</li>
+                    <li>Kiambu County</li>
+                    <li>Remote services available nationwide</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="bg-white my-4">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-left">
+                <p class="mb-0">&copy; 2024 Trevor Nyabuto Consultancy. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-right">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="https:://github.com/TrevorN-tech" target="blank" class="text-white"><i class="fab fa-github-square fa-2x"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+
+</body>
+</html>
