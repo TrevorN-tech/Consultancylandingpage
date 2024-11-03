@@ -1,11 +1,5 @@
 # Basic-Website-using-HTML5-CSS3
-Create your very first website using HTML5, CSS3
-
-Paste all the images in one folder and name it as img.
-Download logo image and paste it in img folder.
-
-copy and paste index.html code in VS Code or NOTE PAD ++ and save it as index.html
-copy and paste style.css code in VS Code or NOTE PAD ++ and save it as style.css
-
-
------WILL POST SHOPPING WEBSITE WITH ADD TO CART OPTION AND FULLY FUNCTIONABLE----
+This is a basic HTML site I made as part of a project portfolio. It has a very minimal design structure and a few basic protocols.
+I will improve it incrementally as I go.
+This is my very first attempt in creating a site and I will still need to integrate a framework in future releases.
+-----Will add an interactive chatbot alluding to the nature and my intent for this site going forward----
