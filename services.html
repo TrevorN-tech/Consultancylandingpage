@@ -9,15 +9,25 @@
     </script>
     <link rel="icon" href="data:," />
     <script>
-    const videoElement = document.getElementById('background-video');
-    const videoSources = [
-        'img/18069235-uhd_3840_2160_24fps.mp4',
-        'img/3126361-uhd_3840_2160_25fps.mp4',
-        'img/3249940-uhd_3840_2160_25fps.mp4',
-        'img/4255065-uhd_3840_2160_25fps.mp4',
-        'img/4708330-uhd_4096_2160_25fps.mp4',
-        'img/8865894-hd_1920_1080_25fps.mp4'
-    ];
+    
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            const containers = document.querySelectorAll('.phrase-container');
+            containers.forEach(container => {
+                let isVisible = false;
+                setInterval(() => {
+                    if (isVisible) {
+                        container.style.opacity = 0;
+                        isVisible = false;
+                    } else {
+                        container.style.opacity = 1;
+                        isVisible = true;
+                    }
+                }, 3000); // Adjust time as needed
+            });
+        });
+    
+
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -104,7 +114,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-    <meta name="description" content="Trevor Nyabuto IT Consultancy - Providing professional IT services in Nairobi and Kiambu counties.">
+    <meta name="description" content="Trevor Nyabuto IT Consultancy - Providing professional I.T. Managed services in the Nairobi and Kiambu counties.">
     
     <!-- CSS Links -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -129,6 +139,7 @@
 <!-- Web Manifest -->
 <link rel="manifest" href="/site.webmanifest">
     <style>
+        
         body {
     font-family: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
@@ -154,50 +165,6 @@
     footer {
         font-size: 1rem; /* Increased size for footer text */
     }
-
-    .cube-container {
-    perspective: 800px;
-    width: 50px;  /* reduced from 150px */
-    height: 50px; /* reduced from 150px */
-    margin: 5px auto; /* reduced margin */
-}
-
-.cube {
-    position: relative;
-    width: 150%;
-    height: 150%;
-    transform-style: preserve-3d;
-    animation: rotate 8s infinite linear;
-}
-
-.face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(243, 4, 191, 0.979); /* semi-transparent pink */
-    border-radius: 20px; /* rounded corners */
-    backdrop-filter: blur(5px);
-    box-shadow: 
-        inset 0 0 20px rgba(255, 255, 255, 0.8),
-        0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-/* Position faces with reduced translation values */
-.front { transform: translateZ(25px); }
-.back { transform: rotateY(180deg) translateZ(25px); }
-.right { transform: rotateY(90deg) translateZ(25px); }
-.left { transform: rotateY(-90deg) translateZ(25px); }
-.top { transform: rotateX(90deg) translateZ(25px); }
-.bottom { transform: rotateX(-90deg) translateZ(25px); }
-
-@keyframes rotate {
-    0% {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    100% {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
 
     .card {
         margin-top: 60px;
@@ -257,11 +224,16 @@ footer h5 {
     font-family: 'Segoe UI', sans-serif;
 }
 #highlight-text {
-    font-size: 2.5rem; /* Increased from 2rem to 2.5rem */
-    font-weight: 400; /* Increased from 500 to 700 for more emphasis */
-    color: #FF1493;
-    font-family: 'Segoe UI', sans-serif;
-}
+        font-size: 4.5rem; /* Existing font size */
+        font-weight: 100; /* Adjust font weight here */
+        color: #FF1493; /* Adjust color here */
+        font-family: 'Segoe UI', sans-serif;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        padding-bottom: 1rem;
+    }
 
     #highlight-container {
         font-size: 1.0rem; /* Adjust this value to make the text smaller */
@@ -298,19 +270,11 @@ footer h5 {
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="#">
-        <div class="cube-container">
-            <div class="cube">
-                <div class="face front"></div>
-                <div class="face back"></div>
-                <div class="face right"></div>
-                <div class="face left"></div>
-                <div class="face top"></div>
-                <div class="face bottom"></div>
-            </div>
-        </div>
+        
        
-        <span class="ml-2 move-right" style="font-size: 3.5rem;">Hi There!</span>
+        <span class="ml-2 move-right" style="font-size: 3.5rem;">Let's Build Solutions</span>
     </a>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -330,22 +294,87 @@ footer h5 {
             </li>
         </ul>
     </div>
-    <div class="slime"></div>
+ 
 </nav>
 <style>
+#cubeContainer {
+  position: fixed; /* Use fixed positioning to keep the cube centered in the viewport */
+  top: 50%; /* Position the top edge of the container at the middle of the viewport */
+  left: 50%; /* Position the left edge of the container at the middle of the viewport */
+  transform: translate(-50%, -50%); /* Offset the container by half its width and height to center it */
+  width: 300px; /* Set a specific width */
+  height: 300px; /* Set a specific height */
+}
+
+.cube {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  position: relative; /* Position relative to its normal position */
+}
+
+.face {
+  position: absolute;
+  width: 100%; /* Each face takes the full width of the cube */
+  height: 100%; /* Each face takes the full height of the cube */
+  /* Additional styling for faces */
+} 
+
+/* Keyframes for cube rotation */
+@keyframes rotateCube {
+  from {
+    transform: rotateX(-30deg) rotateY(-45deg);
+  }
+  to {
+    transform: rotateX(-30deg) rotateY(315deg);
+  }
+}
+
+/* Styling for each face of the cube */
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 182, 193, 0.911); /* Light frosted pink with some transparency */
+  border: 10px solid rgba(240, 217, 221, 0.8);
+  border-radius: 30px;
+  backface-visibility: visible;
+  position: draggable;
+}
+
+.front  { transform: translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+@keyframes spin {
+  from { transform: rotateX(-30deg) rotateY(-45deg); }
+  to { transform: rotateX(-30deg) rotateY(315deg); }
+}
+    .phrase-container {
+            opacity: 0;
+            transition: opacity 20s ease-in-out;
+    }
     .navbar {
-        padding: 1rem 2rem;
+        width: auto;
+        padding: 10px 20px;
         background-color: transparent;
+        margin-bottom: 0 !important;
+        border-radius: 20px;
+        display: flex;
+        background-color: #ffffff;
+        align-items: right;
     }
 
     .navbar-nav {
         margin-left: auto;
+        margin-bottom: 0 !important;
     }
 
     .nav-item {
         margin-left: 1rem;
     }
-
+   
     .nav-link {
         font-family: 'Segoe UI', sans-serif;
         font-size: 1.1rem;
@@ -368,7 +397,8 @@ footer h5 {
         }
     }
     .light-text {
-    font-weight: 300; /* This makes the font light */
+    font-weight: 200; /* This makes the font light */
+    
 }
 
 .h2-style {
@@ -380,6 +410,7 @@ footer h5 {
 }
 
 </style>
+
 </script>
     </head>
 <body>
@@ -388,34 +419,161 @@ footer h5 {
     <div id="cloud-background"></div>
     <div class="content-overlay">
         <div class="name-title">
-            <h1>I am Trevor Nyabuto</h1>
-            <p class="sub-heading spaced-paragraph">
-                <h6>I.T SOLUTIONS <br> ARCHITECT</h6>
+            <h1 class="font-weight-light" style="animation: text  5s infinite; line-height: 1.5;">Your</h1>
+            <span class="sub-heading spaced-paragraph">
+                <h2>I.T SOLUTIONS PARTNER ;-)</h2>
             </p>
         </div>
-        <div class="highlight-wrapper spaced-paragraph">
-            <h2 class="font-weight-light">Specializing in <br> <br><span id="highlight-container"><span id="highlight-text"></span></span></h2>
+        <div class="highlighted-text">
+            <h1 class="font-weight-light"><br><span id="highlight-container"><span class="highlight-text"></span></span></h1>
+        
         </div>
-        <div class="description-container">
-            <div class="glass-description">
-                <h3 style="font-family: 'Segoe UI', Arial, sans-serif !important;">
-                    A continuously evolving IT solutions architect, agile in leveraging cloud and enterprise compute technology to drive individual & teams workflows. A great foundation in Cloud Computing and Mainframe Deployment ensures a robust services delivery pipeline.
-                </h3>
-            </div>
+
+
+        <body>
+
+</body>
+<div class="services-container"></div>
+    <div class="service-card" onclick="this.classList.toggle('flipped')">
+        <div class="service-card-front">
+            <h3>IBM Mainframe Deployment</h3>
         </div>
-        <div class="cubic-bezier">
-            <div class="cube">
-                <div class="face front"></div>
-                <div class="face back"></div>
-                <div class="face right"></div>
-                <div class="face left"></div>
-                <div class="face top"></div>
-                <div class="face bottom"></div>
-            </div>
+        <div class="service-card-back">
+            <p>High Level skilling on V2R4 Server enterprise compute instances ensures you benefit from only the best throughput.</p>
+        </div>
+    </div>
+    <div class="service-card" onclick="this.classList.toggle('flipped')">
+        <div class="service-card-front">
+            <h3>Microsoft Azure A.I</h3>
+        </div>
+        <div class="service-card-back">
+            <p>Certified Azure A.I Practitioner leveraging hybrid cloud solutions and resource instances to drill down and minimize your technical debt improving your profit margins.</p>
+        </div>
+    </div>
+    <div class="service-card" onclick="this.classList.toggle('flipped')">
+        <div class="service-card-front">
+            <h3>I.T Consultancy</h3>
+        </div>
+        <div class="service-card-back">
+            <p>Remain on top of things by leveraging CI/CD pipelines and industry best practices carefully integrated with insight and expertise from real world case studies and experience.</p>
+        </div>
+    </div>
+    <div class="service-card" onclick="this.classList.toggle('flipped')">
+        <div class="service-card-front">
+            <h3>Hardware & Software Heuristics</h3>
+        </div>
+        <div class="service-card-back">
+            <p>Advanced heuristic approaches for optimizing hardware and software performance, ensuring efficient and effective operations.</p>
         </div>
     </div>
 </div>
+        
+    </div>
+</div>
 <style>
+     h1 {
+        font-size: 2.5em; /* Increase the font size */
+    }
+    .large-cube {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: spinCube 10s infinite linear;
+    border-radius: 15px; /* Rounded edges */
+    background-color: rgba(255, 192, 203, 0.5); /* Frosted pink color */
+}
+
+@keyframes spinCube {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+
+
+@keyframes rollAround {
+    0% {
+        transform: translate(-50%, -50%) translateX(0px) translateY(0px);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateX(100vw) translateY(0px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(100vw) translateY(100vh);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateX(0px) translateY(100vh);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(0px) translateY(0px);
+    }
+}
+    .services-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.service-card {
+    width: 700px;
+    height: 400px;
+    perspective: 1000px;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+    margin: 5px;
+}
+
+.service-card-front, .service-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.service-card-front {
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.service-card-back {
+    background: rgba(0, 0, 0, 0.8);
+    transform: rotateY(180deg);
+}
+
+.service-card.flipped .service-card-front {
+    transform: rotateY(-180deg);
+}
+
+.service-card.flipped .service-card-back {
+    transform: rotateY(0deg);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.75), 0 0 15px rgba(255, 105, 180, 0.75), 0 0 30px rgba(255, 105, 180, 0.75);
+    pointer-events: none;
+    opacity: 0.5;
+    padding-right: 10px;
+}
         .name-title {
             font-size: 2.5rem !important; /* Increased size and added !important */
             text-align: left;
@@ -425,12 +583,14 @@ footer h5 {
 
         .name-title .h1-style {
             font-size: inherit; /* This ensures the span inherits the size from its parent */
-            font-weight: bold;
+            font-weight: lighter;
             color: #ffffff;
         }
     
 
-   .immersive-section,
+   .immersive-section {
+    margin-top: 20px; /* Creates space above the section */
+   }
 .content-overlay {
     background: none !important;
     background-image: none !important;
@@ -447,21 +607,11 @@ footer h5 {
     .content-overlay {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        left: 10;
+        width: 80%;
         height: 100%;
         display: flex;
         align-items: center;
-        background: linear-gradient(
-            to right,
-            rgb(0, 0, 0) 0%,        /* Solid black for text */
-            rgb(0, 0, 0) 30%,       /* Still solid for text */
-            rgba(0, 0, 0, 0.7) 40%, /* Start fading */
-            rgba(0, 0, 0, 0.3) 50%, /* More transparent */
-            rgba(0, 0, 0, 0) 60%,   /* Fully transparent for video */
-            rgba(0, 0, 0, 0) 100%   /* Fully transparent for video */
-        );
-    }
 
     .text-content {
         width: 50%;  /* Ensure text stays in the solid/readable area */
@@ -498,16 +648,22 @@ footer h5 {
         min-width: 300px;
         min-height: 3.5rem;
     }
-
+   
     #highlight-text {
-        font-size: 2.5rem;
-        font-weight: 500;
-        color: #FF1493;
+        font-size: 4.5rem; /* Existing font size */
+        font-weight: 100; /* Adjust font weight here */
+        color: #FF1493; /* Adjust color here */
+        font-family: 'Segoe UI', sans-serif;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        padding-bottom: 1rem;
     }
 
     .additional-info {
         font-size: 1.5rem;
-        font-weight: 300;
+        font-weight: 200;
         line-height: 1.6;
         margin-bottom: 1.5rem;
     }
@@ -532,13 +688,14 @@ footer h5 {
 
         #highlight-text {
             font-size: 2rem;
-            font-weight: 300;
+            font-weight: 100;
         }
 
         .additional-info {
             font-size: 1.2rem;
         }
     }
+    
 </style>
 <style>
     /* Dark mode toggle button */
@@ -631,7 +788,7 @@ body.dark-mode .dark-mode-toggle:hover {
 
     #highlight-text {
         font-size: 2rem;
-        font-weight: 500;
+        font-weight: lighter;
         color: #FF1493;
     }
 
@@ -668,21 +825,6 @@ body.dark-mode .dark-mode-toggle:hover {
         line-height: 1.4;
     }
 
-    #highlight-container {
-        display: inline-block;
-        min-width: 300px;
-        min-height: 2.8rem;
-        vertical-align: bottom;
-    }
-
-    #highlight-text {
-        color: #FF1493;
-        font-family: 'Segoe UI', sans-serif;
-        font-weight: bold;
-        opacity: 1;
-        transition: opacity 0.5s ease-in-out;
-    }
-
 
     @media (max-width: 768px) {
         .lead {
@@ -695,16 +837,16 @@ body.dark-mode .dark-mode-toggle:hover {
     }
 </style>
 <style>
-    #highlight-text {
-        font-size: 4.5rem; /* Increased from 2rem to 2.5rem */
-        font-weight: 400; /* Reduced from 500 to 100 for a lighter weight */
-        color: #FF1493;
+     #highlight-text {
+        font-size: 4.5rem; /* Existing font size */
+        font-weight: 100; /* Adjust font weight here */
+        color: #FF1493; /* Adjust color here */
         font-family: 'Segoe UI', sans-serif;
         display: inline-block;
-        transform-origin: bottom;
         opacity: 0;
-        transform: translateY(100%) rotateX(-90deg);
-        transition: transform 0.5s ease-out, opacity 0.5s ease-out, text-shadow 0.5s ease-out;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        padding-bottom: 1rem;
     }
 
     #highlight-container {
@@ -790,30 +932,27 @@ body.dark-mode .dark-mode-toggle:hover {
             min-height: 5rem;
         }
     }
+    h1 {
+        font-size: 2.5em; /* Increase the font size */
+    }
 </style>
 
 <script>
-    const phrases = [
-        "Microsoft Azure A.I",
-        "IBM Z Mainframe Deployment",
-        "I.T Solutions Consultancy",
-    ];
-
+    const phrases = ["Scale Confidently across", "Reduce Time To Market by", "Minimize & Alleviate Downtime via"];
+    
     let currentPhraseIndex = 0;
-    const highlightTextElement = document.getElementById('highlight-text');
 
-    function changeHighlightText() {
-        highlightTextElement.classList.remove('fade-in');
-        
-        setTimeout(() => {
-            highlightTextElement.textContent = phrases[currentPhraseIndex];
-            highlightTextElement.classList.add('fade-in');
-            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-        }, 500);
+    function cyclePhrases() {
+        const highlightElements = document.querySelectorAll('.highlight-text');
+        highlightElements.forEach(el => el.textContent = phrases[currentPhraseIndex]);
+        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
     }
 
-    changeHighlightText();
-    setInterval(changeHighlightText, 3000);
+    // Start cycling phrases every 2 seconds
+    setInterval(cyclePhrases, 2000);
+
+    // Initial call to display the first phrase immediately
+    cyclePhrases();
 </script>
 <style>
     .deck-container {
@@ -850,7 +989,6 @@ body.dark-mode .dark-mode-toggle:hover {
         width: 100%;
         height: 100%;
         position: relative;
-        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
     }
 
     .card-img {
@@ -879,6 +1017,20 @@ body.dark-mode .dark-mode-toggle:hover {
 </style>
 
 <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.service-card');
+    let currentCard = 0;
+    setInterval(() => {
+        if (currentCard < cards.length) {
+            cards[currentCard].classList.toggle('flipped');
+            currentCard++;
+        } else {
+            cards.forEach(card => card.classList.remove('flipped'));
+            currentCard = 0;
+        }
+    }, 3000); // flips every 3 seconds
+});
     document.addEventListener('DOMContentLoaded', function() {
         const deck = document.querySelector('.deck');
         const cards = Array.from(deck.querySelectorAll('.card'));
@@ -944,87 +1096,99 @@ body.dark-mode .dark-mode-toggle:hover {
 
         animate();
     });
+    // Function to make an element draggable
+function dragElement(element) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+  element.onmousedown = dragMouseDown;
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // Get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // Call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // Calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // Set the element's new position:
+    element.style.top = (element.offsetTop - pos2) + "px";
+    element.style.left = (element.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // Stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+// Apply the drag function to the cube
+dragElement(document.getElementById("cube"));
 </script>
 </body>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cube = document.querySelector('.cube');
-        const glassDescription = document.getElementById('glassDescription');
-        
-        function isOverlapping(elem1, elem2) {
-            const rect1 = elem1.getBoundingClientRect();
-            const rect2 = elem2.getBoundingClientRect();
-            return !(rect1.right < rect2.left || 
-                     rect1.left > rect2.right || 
-                     rect1.bottom < rect2.top || 
-                     rect1.top > rect2.bottom);
-        }
-        
-        function checkOverlap() {
-            if (isOverlapping(cube, glassDescription)) {
-                glassDescription.style.backgroundColor = 'rgba(0, 255, 0, 0.2)'; // Green tint
-            } else {
-                glassDescription.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; // Original color
-            }
-            requestAnimationFrame(checkOverlap);
-        }
-        
-        checkOverlap();
-    });
 </script>
 </body>
 </html>
-<script>
-    // Initialize the carousel
-    $(document).ready(function(){
-        $('#videoCarousel').carousel({
-            interval: 10000 // Change slide every 10 seconds
-        });
-    });
-
-    // Pause/play videos when sliding
-    $('#videoCarousel').on('slide.bs.carousel', function () {
-        $('video').each(function(){
-            this.pause();
-        });
-    });
-
-    $('#videoCarousel').on('slid.bs.carousel', function () {
-        $('.carousel-item.active video')[0].play();
-    });
-</script>
 
 <!--- Two Column Section -->
-<div class="immersive-section">
-    <div class="video-background">
-        <div id="web3d-container"></div>
-    </div>
 
-    <div class="description-container">
-        <div class="glass-description">
-            <h2 class="display-4 philosophy-heading" style="color: #070606; font-size: 3.5rem; margin-left: 20px;">Solutions Framework</h2>
-            <p class="lead philosophy-text" style="color: #000000; font-size: 2.5rem; margin-left: 20px;">Your work and teams culture should be as easy as your support infrastructure ;-)</p>
-            <p class="lead philosophy-text" style="color: #000000; font-size: 2.5rem; margin-left: 20px;">Reduce your time to market through a continuous I.T Managed services <br>delivery pipeline across enterprise and cloud compute instances.</p>
-            <p class="lead philosophy-text" style="color: #000000; font-size: 2.5rem; margin-left: 20px;">By integrating agile practices and seamless solutions-provision,<br> you are guaranteed up to a 99% uptime in your workflows.</p>
-        </div>
-        <div class="cubic-bezier">
-            <div class="cube">
-                <div class="face front"></div>
-                <div class="face back"></div>
-                <div class="face right"></div>
-                <div class="face left"></div>
-                <div class="face top"></div>
-                <div class="face bottom"></div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <style>
+    .slot-machine span {
+    display: inline-block;
+    animation: flip 0.5s ease forwards;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateX(180deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(360deg);
+        opacity: 1;
+    }
+}
+
+/* Adding delay to each letter for sequential effect */
+.slot-machine span:nth-child(1) { animation-delay: 0.1s; }
+.slot-machine span:nth-child(2) { animation-delay: 0.2s; }
+.slot-machine span:nth-child(3) { animation-delay: 0.3s; }
+.slot-machine span:nth-child(4) { animation-delay: 0.4s; }
+.slot-machine span:nth-child(5) { animation-delay: 0.5s; }
+.slot-machine span:nth-child(6) { animation-delay: 0.6s; }
+.slot-machine span:nth-child(7) { animation-delay: 0.7s; }
+.slot-machine span:nth-child(8) { animation-delay: 0.8s; }
+    .highlight-text {
+        font-size: 2em; /* Increase the font size from 2.5em to 3em */
+        font-weight: bolder; /* Make the font weight bold */
+        line-height: 1.5;
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: 500;
+        animation: fadeIn 2s ease-in-out;
+        color: #FF1493;
+    }
+
     .highlighted-text {
     font-size: 2.5rem !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-    font-weight: 300 !important;
+    font-weight: 200 !important;
     line-height: 1.4 !important;
     color: #333 !important; /* Adjust color as needed */
 }
@@ -1055,16 +1219,6 @@ body.dark-mode .dark-mode-toggle:hover {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-            to right,
-            rgb(0, 0, 0) 0%,        /* Solid black for text */
-            rgb(0, 0, 0) 30%,       /* Still solid for text */
-            rgba(0, 0, 0, 0.7) 40%, /* Start fading */
-            rgba(0, 0, 0, 0.3) 50%, /* More transparent */
-            rgba(0, 0, 0, 0) 60%,   /* Fully transparent for video */
-            rgba(0, 0, 0, 0) 100%   /* Fully transparent for video */
-        );
-    }
 
     .text-content {
         width: 50%;  /* Keep text in readable area */
@@ -1072,17 +1226,6 @@ body.dark-mode .dark-mode-toggle:hover {
         color: #ffffff;
     }
 
-    #content-cube {
-        position: fixed; /* Ensures the cube stays in place relative to the viewport */
-        top: 100%; /* Center vertically */
-        left: 100%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Adjust for centering */
-        z-index: 9999; /* High z-index to ensure it appears on top */
-        width: 200px; /* Adjust size as needed */
-        height: 200px;
-        background-color: rgb(248, 8, 168); /* Ensure the cube is pink */
-        pointer-events: bounce; /* Allows clicks to pass through the cube */
-    }
 
     .face {
         position: absolute;
@@ -1121,48 +1264,7 @@ body.dark-mode .dark-mode-toggle:hover {
     }
     </style>
 
-<!--- Certifications -->
-<div class="container-fluid certifications-section">
-	<div class="row welcome text-center sticky-top">
-		<div class="col-12">
-			<h1 class="display-1">Professional Qualifications</h1>
-		</div>
-	</div>
-</div>
 
-<!--- Cards -->
-
-<div class="container-fluid padding certifications-cards-container">
-    <div class="deck-container">
-        <div class="deck">
-            <div class="card" data-index="0">
-                <div class="card-content">
-                    <img class="card-img" src="img/Microsoft_Certified_Professional.jpg" alt="Microsoft Azure AI">
-                    <div class="card-body">
-                        <h4 class="card-title">Microsoft Azure A.I</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-index="1">
-                <div class="card-content">
-                    <img class="card-img" src="img/IBM_zOS.png" alt="IBM Z Mainframe">
-                    <div class="card-body">
-                        <h4 class="card-title">IBM zOS</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-index="2">
-                <div class="card-content">
-                    <img class="card-img" src="img/ICSI - CNSS_page-0001.jpg" alt="Network Security">
-                    <div class="card-body">
-                        <h4 class="card-title">Network Security - ICSI</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
 <style>
     .deck-container {
         perspective: 1000px;
@@ -1234,34 +1336,7 @@ body.dark-mode .dark-mode-toggle:hover {
         }
     }
 </style>
-<!--- Two Column Section -->
-<div class="immersive-section" data-aos="fade-down" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
-    <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <video class="d-block w-100 video-loop" id="video1" autoplay muted>
-                    <source src="img/4708330-uhd_4096_2160_25fps.mp4" type="video/mp4">
-                </video>
-                <div class="overlay-text">Hardware & Software Heuristics</div>
-            </div>
-            <div class="carousel-item">
-                <video class="d-block w-100 video-loop" id="video2" autoplay muted>
-                    <source src="img/3126361-uhd_3840_2160_25fps.mp4" type="video/mp4">
-                </video>
-                <div class="overlay-text">On-demand solutions around the clock</div>
-                
-            </div>
-            <div class="carousel-item">
-                <video class="d-block w-100 video-loop" id="video3" autoplay muted>
-                    <source src="img/3249940-uhd_3840_2160_25fps.mp4" type="video/mp4">
-                </video>
-                <div class="overlay-text">Scale up for your Teams 
-                    <br>& on an Individual basis</div>  
-            </div>
-            <!-- Add more videos as needed -->
-        </div>
-    </div>
-</div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var carouselElement = document.querySelector('#videoCarousel');
@@ -1282,23 +1357,15 @@ body.dark-mode .dark-mode-toggle:hover {
 </div>
 
 <style>
-    @keyframes moveGradient {
-    0%, 100% {
-        background-position: 0% 50%;
-        color: #ffffff; /* Light color when gradient is at the top */
-    }
-    50% {
-        background-position: 100% 50%;
-        color: #000000; /* Dark color when gradient is at the bottom */
-    }
-}
+    
 
 footer.bg-black {
+    background-color: #000000 !important; /* Ensures background is black */
     border-radius: 20px; /* Rounded corners */
     backdrop-filter: blur(10px); /* Enhanced frosted glass effect */
     border: 1px solid rgb(0, 0, 0); /* Brighter border for more depth */
-    color: #000000; /* Initial text color */
-    background-image: none; /* Remove any existing gradient */
+    color: #ffffff; /* Adjusted text color for better visibility */
+    background-image: none !important; /* Ensures no background image is applied */
 }
 .video-container {
     position: relative;
@@ -1312,10 +1379,9 @@ footer.bg-black {
 }
 
 
+
 footer.bg-black {
     border-radius: 20px; /* Rounded corners */
-    background: black; /* Increased color intensity */
-    animation: moveGradient 10s infinite alternate; /* Slower transition for more visibility */
     backdrop-filter: blur(10px); /* Enhanced frosted glass effect */
     border: 1px solid rgba(255, 255, 255, 0.25); /* Brighter border for more depth */
     color: #ffffff; /* Initial text color */
@@ -1349,16 +1415,6 @@ footer.bg-black {
     margin-left: 50px;
 }
 
-@keyframes textSlotMachine {
-    0%, 100% {
-        transform: translateY(0);
-        opacity: 0;
-    }
-    5%, 95% {
-        transform: translateY(-100%);
-        opacity: 1;
-    }
-} 
     .grid-box {
         display: grid;
         grid-template-columns: 1fr;
@@ -1368,52 +1424,8 @@ footer.bg-black {
         box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
         background-color: #f9f9f9; /* Light background color */
     }
-    .cubic-bezier .cube {
-        width: 150px; /* Increase the width */
-        height: 150px; /* Increase the height */
-        position: relative;
-        transform-style: preserve-3d;
-        transform: rotateX(-30deg) rotateY(-45deg);
-        animation: rotate 10s infinite linear;
-    }
 
-    .cubic-bezier .cube .face {
-        position: absolute;
-        width: 150px; /* Match the cube's width */
-        height: 150px; /* Match the cube's height */
-        background: rgba(255, 182, 193, 0.7); /* Light pink with transparency */
-        border: 1px solid rgba(255, 105, 180, 0.5); /* Semi-transparent border */
-        border-radius: 20px; /* Rounded corners for a lumpy effect */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-    }
-
-    /* Adjust the positions of the faces */
-    .cubic-bezier .cube .front  { transform: translateZ(75px); }
-    .cubic-bezier .cube .back   { transform: rotateY(180deg) translateZ(75px); }
-    .cubic-bezier .cube .right  { transform: rotateY(90deg) translateZ(75px); }
-    .cubic-bezier .cube .left   { transform: rotateY(-90deg) translateZ(75px); }
-    .cubic-bezier .cube .top    { transform: rotateX(90deg) translateZ(75px); }
-    .cubic-bezier .cube .bottom { transform: rotateX(-90deg) translateZ(75px); }
-
-    @keyframes rotate {
-        from { transform: rotateX(-30deg) rotateY(-45deg); }
-        to { transform: rotateX(-30deg) rotateY(315deg); }
-    }
-
-    .cubic-bezier {
-        display: flex;
-        justify-content: space-around; /* Space cubes evenly */
-        align-items: center;
-    }
-
-    .cube {
-        position: relative;
-        width: 100px;
-        height: 100px;
-        transform-style: preserve-3d;
-        animation: rotate 8s infinite linear;
-    }
-
+  
     .immersive-section {
         margin-bottom: 100px;
     }
@@ -1444,10 +1456,14 @@ footer.bg-black {
                         <a href="tel:254-702-566670" title="Call Trevor Nyabuto" style="font-size: 1.2rem;">254-702-566670</a>
                     </li>
                     <li>
-                        <a href="mailto:trevornyabuto@gmail.com?subject=Hi!%20I%20would%20like%20to%20get%20in%20touch%20regarding%20your%20services." style="font-size: 1.2rem;" title="Email Trevor Nyabuto" rel="noopener noreferrer">
+                        <a href="mailto:trevornyabuto@gmail.com?subject=Inquiry&body=Hi%20there,%20I%20would%20like%20to%20get%20in%20touch%20with%20you%20and%20go%20over%20your%20solutions%20catalogue.%20Thank%20you." style="font-size: 1.2rem;" title="Email Trevor Nyabuto">
                             trevornyabuto@gmail.com
                         </a>
                     </li>
+                    <li>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Nairobi+Central+Business+District" style="font-size: 1.2rem;" target="_blank" title="View Nairobi CBD on Google Maps">
+                            Nairobi, Kenya <br>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -1473,8 +1489,7 @@ footer.bg-black {
                     <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.123456789012!2d36.821946!3d-1.292066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a1b1b1b1b1b%3A0x1b1b1b1b1b1b1b1b!2sKiambu%20County%2C%20Kenya!5e0!3m2!1sen!2s!4v1234567890123" style="font-size: 1.2rem;" target="_blank" title="View Kiambu County on Google Maps">
                         Kiambu County
                     </a>
-                    <br>
-                    <li style="font-size: 1.2rem;">Remote Desktop Services <br>Available Nationwide</li>
+                    <li style="font-size: 1.2rem;">Remote Desktop Services Available Nxationwide</li>
                 </ul>
             </div>
         </div>
